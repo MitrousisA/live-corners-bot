@@ -180,7 +180,7 @@ def analyze_with_claude(match_info: dict) -> dict:
     corners_per_minute = total_corners / max(int(minute), 1)
     projected_corners  = round(corners_per_minute * 90, 1)
 
-    prompt = Είσαι έμπειρος αναλυτής live ποδοσφαίρου με 20+ χρόνια εξειδίκευση στα corners.
+    prompt = f"""Είσαι έμπειρος αναλυτής live ποδοσφαίρου με 20+ χρόνια εξειδίκευση στα corners.
 
 ΓΝΩΣΗ CORNERS:
 - Corners δημιουργούνται από επιθετική πίεση, όχι μόνο από γκολ
