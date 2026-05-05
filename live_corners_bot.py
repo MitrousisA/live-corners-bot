@@ -197,7 +197,7 @@ def analyze_with_claude(match_info: dict) -> dict:
 - Αγνόησε αν λεπτό > 70 για Over
 - Αγνόησε αν odds < 1.70 (χαμηλό value)
 
-LIVE ΑΓΩΝΑΣ: {home} {score_home}-{score_away} {away} | {league} | {minute}'
+LIVE ΑΓΩΝΑΣ: {home} {score_home}-{score_away} {away} | {league} | {minute}
 
 ΣΤΑΤΙΣΤΙΚΑ:
   Corners: {home} {home_corners} - {away_corners} {away} (Σύνολο: {total_corners})
