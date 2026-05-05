@@ -180,7 +180,22 @@ def analyze_with_claude(match_info: dict) -> dict:
     corners_per_minute = total_corners / max(int(minute), 1)
     projected_corners  = round(corners_per_minute * 90, 1)
 
-    prompt = f"""Είσαι έμπειρος αναλυτής live ποδοσφαίρου με εξειδίκευση στα corners.
+    prompt = Είσαι έμπειρος αναλυτής live ποδοσφαίρου με 20+ χρόνια εξειδίκευση στα corners.
+
+ΓΝΩΣΗ CORNERS:
+- Corners δημιουργούνται από επιθετική πίεση, όχι μόνο από γκολ
+- Ο ρυθμός corners αυξάνεται όταν χάνει ομάδα (πιέζει)
+- Defensive teams = λιγότερα corners συνολικά
+- Μεγάλη διαφορά σκορ = η χαμένη ομάδα πιέζει = περισσότερα corners
+- Dangerous Attacks > 15/ομάδα = υψηλός ρυθμός corners
+- Possession 60%+ από μία ομάδα = περισσότερα corners για αυτή
+
+ΦΙΛΤΡΑ VALUE:
+- Over value: ρυθμός > 0.12/λεπτό ΚΑΙ projected > line+1.5
+- Under value: ρυθμός < 0.07/λεπτό ΚΑΙ projected < line-1.5
+- Αγνόησε αν διαφορά projected vs line < 1.0
+- Αγνόησε αν λεπτό > 70 για Over
+- Αγνόησε αν odds < 1.70 (χαμηλό value)
 
 LIVE ΑΓΩΝΑΣ: {home} {score_home}-{score_away} {away} | {league} | {minute}'
 
